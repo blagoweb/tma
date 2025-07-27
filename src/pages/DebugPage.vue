@@ -12,6 +12,11 @@ const debugInfo = ref({
   }
 });
 
+const envInfo = ref({
+  mode: import.meta.env.MODE,
+  baseUrl: import.meta.env.BASE_URL
+});
+
 onMounted(() => {
   debugInfo.value = {
     userAgent: navigator.userAgent,
@@ -44,8 +49,8 @@ onMounted(() => {
 
       <div class="debug-section">
         <h3>Environment</h3>
-        <p><strong>Mode:</strong> {{ import.meta.env.MODE }}</p>
-        <p><strong>Base URL:</strong> {{ import.meta.env.BASE_URL }}</p>
+        <p><strong>Mode:</strong> {{ envInfo.mode }}</p>
+        <p><strong>Base URL:</strong> {{ envInfo.baseUrl }}</p>
       </div>
     </div>
   </AppPage>

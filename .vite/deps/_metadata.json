@@ -1,8 +1,46 @@
 {
-  "hash": "19ebb227",
+  "hash": "b3d5add1",
   "configHash": "43e245ce",
-  "lockfileHash": "e3b0c442",
-  "browserHash": "e938c7c7",
-  "optimized": {},
-  "chunks": {}
+  "lockfileHash": "4a4dda69",
+  "browserHash": "37f16b26",
+  "optimized": {
+    "vue": {
+      "src": "../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
+      "file": "vue.js",
+      "fileHash": "9fc6c2da",
+      "needsInterop": false
+    },
+    "@telegram-apps/sdk-vue": {
+      "src": "../../node_modules/@telegram-apps/sdk-vue/dist/index.js",
+      "file": "@telegram-apps_sdk-vue.js",
+      "fileHash": "9e088d25",
+      "needsInterop": false
+    },
+    "vue-router": {
+      "src": "../../node_modules/vue-router/dist/vue-router.mjs",
+      "file": "vue-router.js",
+      "fileHash": "f6343302",
+      "needsInterop": false
+    },
+    "eruda": {
+      "src": "../../node_modules/eruda/eruda.js",
+      "file": "eruda.js",
+      "fileHash": "6583a24f",
+      "needsInterop": true
+    },
+    "@tonconnect/ui": {
+      "src": "../../node_modules/@tonconnect/ui/lib/index.mjs",
+      "file": "@tonconnect_ui.js",
+      "fileHash": "9e8ab6a0",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-IJV5NOMV": {
+      "file": "chunk-IJV5NOMV.js"
+    },
+    "chunk-7D4SUZUM": {
+      "file": "chunk-7D4SUZUM.js"
+    }
+  }
 }

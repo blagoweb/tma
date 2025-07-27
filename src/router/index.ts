@@ -14,6 +14,14 @@ export const routes = [
     component: IndexPage,
   },
   {
+    path: '/debug',
+    name: 'debug',
+    component: DebugPage,
+    meta: {
+      title: 'debug',
+    },
+  },
+  {
     path: '/init-data',
     name: 'init-data',
     component: InitDataPage,

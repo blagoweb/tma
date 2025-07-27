@@ -12,7 +12,7 @@ defineProps<{ title: string, disclaimer?: string }>()
 
 <style>
 .page {
-    padding: 0 10px;
+    padding: 60px 20px;
     box-sizing: border-box;
 }
 

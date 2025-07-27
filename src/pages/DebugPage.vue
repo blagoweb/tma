@@ -77,6 +77,7 @@ onMounted(() => {
 
 import {initData} from "@telegram-apps/sdk-vue";
 const endpoints = [
+  { name: 'Health Check', method: 'GET', path: '/health' },
   { name: 'Auth/Login', method: 'POST', path: '/api/auth/login', body: { initData } },
   { name: 'List Landings', method: 'GET', path: '/api/landings' },
   { name: 'Create Landing', method: 'POST', path: '/api/landings', body: { title: 'Test', description: 'Debug', avatarUrl: '' } },

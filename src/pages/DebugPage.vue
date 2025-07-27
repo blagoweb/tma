@@ -66,7 +66,6 @@ onMounted(() => {
   padding: 15px;
   border: 1px solid #ddd;
   border-radius: 8px;
-  background-color: #f9f9f9;
 }
 
 .debug-section h3 {

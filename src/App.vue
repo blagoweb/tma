@@ -9,7 +9,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 
-const tg = window.Telegram?.WebApp
+const tg = window.Telegram.WebApp
 const userInfo = ref('')
 
 onMounted(() => {

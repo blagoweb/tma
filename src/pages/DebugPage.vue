@@ -1,3 +1,49 @@
+<template>
+  <AppPage title="Debug Page" :back="true">
+    <div class="debug-page">
+      <h2>Debug Information</h2>
+      <div class="debug-section">
+        <h3>Browser Information</h3>
+        <p><strong>User Agent:</strong> {{ debugInfo.userAgent }}</p>
+        <p><strong>URL:</strong> {{ debugInfo.url }}</p>
+        <p><strong>Timestamp:</strong> {{ debugInfo.timestamp }}</p>
+      </div>
+
+      <div class="debug-section">
+        <h3>Viewport</h3>
+        <p><strong>Width:</strong> {{ debugInfo.viewport.width }}px</p>
+        <p><strong>Height:</strong> {{ debugInfo.viewport.height }}px</p>
+      </div>
+
+      <div class="debug-section">
+        <h3>Environment</h3>
+        <p><strong>Mode:</strong> {{ envInfo.mode }}</p>
+        <p><strong>Base URL:</strong> {{ envInfo.baseUrl }}</p>
+      </div>
+
+      <div class="debug-section">
+        <div class="p-4 space-y-4">
+          <h1 class="text-2xl font-bold">Debug API Console</h1>
+          <div v-for="endpoint in endpoints" :key="endpoint.name" class="border rounded p-4">
+            <h2 class="text-xl font-medium">{{ endpoint.name }}</h2>
+            <div class="mt-2 space-x-2">
+              <button
+                  @click="callEndpoint(endpoint)"
+                  class="px-3 py-1 rounded bg-blue-500 text-white hover:bg-blue-600"
+              >
+                Call
+              </button>
+            </div>
+            <div v-if="results[endpoint.name]" class="mt-2 bg-gray-100 p-2 rounded text-sm font-mono overflow-auto">
+              <pre>{{ results[endpoint.name] }}</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </AppPage>
+</template>
+
 <script setup lang="ts">
 import { ref, onMounted, reactive } from 'vue';
 import AppPage from '@/components/AppPage.vue';
@@ -70,52 +116,6 @@ async function callEndpoint(endpoint: Endpoint) {
 
 
 </script>
-
-<template>
-  <AppPage title="Debug Page" :back="true">
-    <div class="debug-page">
-      <h2>Debug Information</h2>
-      <div class="debug-section">
-        <h3>Browser Information</h3>
-        <p><strong>User Agent:</strong> {{ debugInfo.userAgent }}</p>
-        <p><strong>URL:</strong> {{ debugInfo.url }}</p>
-        <p><strong>Timestamp:</strong> {{ debugInfo.timestamp }}</p>
-      </div>
-
-      <div class="debug-section">
-        <h3>Viewport</h3>
-        <p><strong>Width:</strong> {{ debugInfo.viewport.width }}px</p>
-        <p><strong>Height:</strong> {{ debugInfo.viewport.height }}px</p>
-      </div>
-
-      <div class="debug-section">
-        <h3>Environment</h3>
-        <p><strong>Mode:</strong> {{ envInfo.mode }}</p>
-        <p><strong>Base URL:</strong> {{ envInfo.baseUrl }}</p>
-      </div>
-
-      <div class="debug-section">
-        <div class="p-4 space-y-4">
-          <h1 class="text-2xl font-bold">Debug API Console</h1>
-          <div v-for="endpoint in endpoints" :key="endpoint.name" class="border rounded p-4">
-            <h2 class="text-xl font-medium">{{ endpoint.name }}</h2>
-            <div class="mt-2 space-x-2">
-              <button
-                  @click="callEndpoint(endpoint)"
-                  class="px-3 py-1 rounded bg-blue-500 text-white hover:bg-blue-600"
-              >
-                Call
-              </button>
-            </div>
-            <div v-if="results[endpoint.name]" class="mt-2 bg-gray-100 p-2 rounded text-sm font-mono overflow-auto">
-              <pre>{{ results[endpoint.name] }}</pre>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </AppPage>
-</template>
 
 <style scoped>
 .debug-page {

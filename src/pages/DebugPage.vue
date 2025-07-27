@@ -29,8 +29,9 @@ onMounted(() => {
   };
 });
 
+import {initData} from "@telegram-apps/sdk-vue";
 const endpoints = [
-  { name: 'Auth/Login', method: 'POST', path: '/api/auth/login', body: { initData: '...' } },
+  { name: 'Auth/Login', method: 'POST', path: '/api/auth/login', body: { initData } },
   { name: 'List Landings', method: 'GET', path: '/api/landings' },
   { name: 'Create Landing', method: 'POST', path: '/api/landings', body: { title: 'Test', description: 'Debug', avatarUrl: '' } },
   { name: 'List Links', method: 'GET', path: '/api/links?landingId=1' },
@@ -61,8 +62,7 @@ async function callEndpoint(endpoint: Endpoint) {
       },
       body: endpoint.body ? JSON.stringify(endpoint.body) : undefined
     })
-    const text = await res.text()
-    results[endpoint.name] = text
+    results[endpoint.name] = await res.text()
   } catch (err) {
     results[endpoint.name] = err instanceof Error ? err.message : String(err)
   }

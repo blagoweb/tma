@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, reactive } from 'vue';
 import AppPage from '@/components/AppPage.vue';
 
 const debugInfo = ref({
@@ -40,9 +40,16 @@ const endpoints = [
   { name: 'List Subscriptions', method: 'GET', path: '/api/subscriptions' }
 ]
 
-const results = reactive({})
+interface Endpoint {
+  name: string;
+  method: string;
+  path: string;
+  body?: any;
+}
 
-async function callEndpoint(endpoint) {
+const results = reactive<Record<string, string>>({})
+
+async function callEndpoint(endpoint: Endpoint) {
   results[endpoint.name] = 'Loading...'
   const url = envInfo.value.baseUrl + endpoint.path
   try {
@@ -57,7 +64,7 @@ async function callEndpoint(endpoint) {
     const text = await res.text()
     results[endpoint.name] = text
   } catch (err) {
-    results[endpoint.name] = err.message
+    results[endpoint.name] = err instanceof Error ? err.message : String(err)
   }
 }
 

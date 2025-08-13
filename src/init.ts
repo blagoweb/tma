@@ -19,8 +19,8 @@ export function init(debug: boolean): void {
     // Also, configure the package.
     initSDK();
 
-    // Add Eruda if needed.
-    if (debug) {
+    // Add Eruda if needed (only in development mode).
+    if (debug && import.meta.env.DEV) {
         import('eruda')
             .then((lib) => lib.default.init())
             .catch(console.error);

@@ -26,4 +26,18 @@ export default defineConfig({
     // Exposes your dev server and makes it accessible for the devices in the same network.
     host: true,
   },
+  esbuild: {
+    drop: ['console', 'debugger'],
+  },
+  build: {
+    rollupOptions: {
+      onwarn(warning, warn) {
+        // Игнорируем предупреждения о eval в eruda
+        if (warning.code === 'EVAL' && warning.id?.includes('eruda')) {
+          return;
+        }
+        warn(warning);
+      },
+    },
+  },
 })

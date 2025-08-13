@@ -80,9 +80,11 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import { initData } from '@telegram-apps/sdk-vue'
-import { useAuth } from '@/composables/useAuth'
-import { apiGet } from '@/utils/api'
+import { useAuth } from '../composables/useAuth'
+import { apiGet } from '../utils/api'
+import AuthButton from '../components/AuthButton.vue'
 
 const {
   user,
@@ -94,7 +96,7 @@ const {
   clearError,
 } = useAuth()
 
-const hasInitData = computed(() => !!initData.hash)
+const hasInitData = computed(() => !!initData.value)
 
 const formatDate = (dateString: string) => {
   return new Date(dateString).toLocaleDateString('ru-RU', {
@@ -121,7 +123,7 @@ const testApiCall = async () => {
 const showUserData = () => {
   console.log('Данные пользователя:', user.value)
   console.log('Токен:', token.value)
-  console.log('Telegram Init Data:', initData)
+  console.log('Telegram Init Data:', initData.value)
   alert('Данные выведены в консоль!')
 }
 </script>

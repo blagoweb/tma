@@ -55,8 +55,8 @@ export function useAuth() {
       state.value.error = null
 
       // Get init data from Telegram SDK
-      const telegramInitData = initData.raw()
-
+      const telegramInitData = initData.value
+      
       if (!telegramInitData) {
         throw new Error('Telegram init data not available')
       }
@@ -147,7 +147,7 @@ export function useAuth() {
   /**
    * Update user data
    */
-  async function updateUser(userData: Partial<TelegramUser>): Promise<void> {
+  function updateUser(userData: Partial<TelegramUser>): void {
     if (state.value.user) {
       state.value.user = { ...state.value.user, ...userData }
       

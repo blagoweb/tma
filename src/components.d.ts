@@ -10,9 +10,9 @@ declare module 'vue' {
   export interface GlobalComponents {
     App: typeof import('./App.vue')['default']
     AppPage: typeof import('./components/AppPage.vue')['default']
-    AuthButton: typeof import('./components/AuthButton.vue')['default']
     IndexPage: typeof import('./pages/IndexPage.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    TonConnectButton: typeof import('./tonconnect/TonConnectButton.vue')['default']
   }
 }

@@ -33,7 +33,7 @@
               >
                 Call
               </button>
-              <pre>{{pre}}</pre>
+              <pre v-if="pre">{{pre}}</pre>
             </div>
             <div v-if="results[endpoint.name]" class="mt-2 bg-gray-100 p-2 rounded text-sm font-mono overflow-auto">
               <pre>{{ results[endpoint.name] }}</pre>
@@ -105,7 +105,7 @@ const pre = ref(null)
 async function callEndpoint(endpoint: Endpoint) {
   results[endpoint.name] = 'Loading...'
   const url = envInfo.value.baseUrl + endpoint.path
-  pre.value = endpoint.body
+  pre.value = endpoint?.body
   try {
     const res = await fetch(url, {
       method: endpoint.method,

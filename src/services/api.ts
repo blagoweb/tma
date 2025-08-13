@@ -2,7 +2,6 @@ import axios from 'axios';
 
 // Создаем экземпляр axios с базовой конфигурацией
 const apiClient = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE,
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
@@ -45,9 +44,11 @@ export interface Endpoint {
 // Функция для вызова эндпоинта
 export async function callEndpoint(endpoint: Endpoint): Promise<string> {
   try {
-    const config = {
+    // @ts-ignore
+    const baseUrl = import.meta.env.VITE_API_BASE || '';
+    const config: any = {
       method: endpoint.method.toLowerCase() as 'get' | 'post' | 'put' | 'delete' | 'patch',
-      url: endpoint.path,
+      url: baseUrl + endpoint.path,
     };
 
     if (endpoint.body) {

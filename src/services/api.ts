@@ -1,7 +1,7 @@
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
+import axios from 'axios';
 
 // Создаем экземпляр axios с базовой конфигурацией
-const apiClient: AxiosInstance = axios.create({
+const apiClient = axios.create({
   baseURL: import.meta.env.VITE_API_BASE,
   timeout: 10000,
   headers: {
@@ -25,7 +25,7 @@ apiClient.interceptors.request.use(
 
 // Интерцептор для обработки ответов
 apiClient.interceptors.response.use(
-  (response: AxiosResponse) => {
+  (response) => {
     return response;
   },
   (error) => {
@@ -45,7 +45,7 @@ export interface Endpoint {
 // Функция для вызова эндпоинта
 export async function callEndpoint(endpoint: Endpoint): Promise<string> {
   try {
-    const config: AxiosRequestConfig = {
+    const config = {
       method: endpoint.method.toLowerCase() as 'get' | 'post' | 'put' | 'delete' | 'patch',
       url: endpoint.path,
     };

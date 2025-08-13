@@ -80,11 +80,9 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
 import { initData } from '@telegram-apps/sdk-vue'
-import { useAuth } from '../composables/useAuth'
-import { apiGet } from '../utils/api'
-import AuthButton from '../components/AuthButton.vue'
+import { useAuth } from '@/composables/useAuth'
+import { apiGet } from '@/utils/api'
 
 const {
   user,

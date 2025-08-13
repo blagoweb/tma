@@ -79,14 +79,15 @@ import {initData} from "@telegram-apps/sdk-vue";
 
 const endpoints = [
   { name: 'Health Check', method: 'GET', path: '/health' },
-  { name: 'Auth/Login', method: 'POST', path: '/api/auth/login', body: { initData: String(initData.raw()) } },
-  { name: 'List Landings', method: 'GET', path: '/api/landings' },
-  { name: 'Create Landing', method: 'POST', path: '/api/landings', body: { title: 'Test', description: 'Debug', avatarUrl: '' } },
-  { name: 'List Links', method: 'GET', path: '/api/links?landingId=1' },
-  { name: 'List Leads', method: 'GET', path: '/api/leads' },
-  { name: 'List Analytics', method: 'GET', path: '/api/analytics?landingId=1' },
-  { name: 'List Payments', method: 'GET', path: '/api/payments' },
-  { name: 'List Subscriptions', method: 'GET', path: '/api/subscriptions' }
+  { name: 'Auth/Login', method: 'POST', path: '/api/v1/auth/telegram', body: { initData: String(initData.raw()) } },
+  { name: 'Check JWT', method: 'GET', path: '/api/v1/items' },
+  // { name: 'List Landings', method: 'GET', path: '/api/landings' },
+  // { name: 'Create Landing', method: 'POST', path: '/api/landings', body: { title: 'Test', description: 'Debug', avatarUrl: '' } },
+  // { name: 'List Links', method: 'GET', path: '/api/links?landingId=1' },
+  // { name: 'List Leads', method: 'GET', path: '/api/leads' },
+  // { name: 'List Analytics', method: 'GET', path: '/api/analytics?landingId=1' },
+  // { name: 'List Payments', method: 'GET', path: '/api/payments' },
+  // { name: 'List Subscriptions', method: 'GET', path: '/api/subscriptions' }
 ]
 
 interface Endpoint {

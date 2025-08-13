@@ -28,7 +28,7 @@
             <h2 class="text-xl font-medium">{{ endpoint.name }}</h2>
             <div class="mt-2 space-x-2">
               <button
-                  @click="callEndpointHandler(endpoint)"
+                  @click="callEndpoint(endpoint)"
                   class="px-3 py-1 rounded bg-blue-500 text-white hover:bg-blue-600"
               >
                 Call
@@ -47,7 +47,6 @@
 <script setup lang="ts">
 import { ref, onMounted, reactive } from 'vue';
 import AppPage from '@/components/AppPage.vue';
-import { callEndpoint, type Endpoint } from '@/services/api';
 
 const debugInfo = ref({
   userAgent: '',
@@ -90,14 +89,28 @@ const endpoints = [
   { name: 'List Subscriptions', method: 'GET', path: '/api/subscriptions' }
 ]
 
-
+interface Endpoint {
+  name: string;
+  method: string;
+  path: string;
+  body?: any;
+}
 
 const results = reactive<Record<string, string>>({})
 
-async function callEndpointHandler(endpoint: Endpoint) {
+async function callEndpoint(endpoint: Endpoint) {
   results[endpoint.name] = 'Loading...'
+  const url = envInfo.value.baseUrl + endpoint.path
   try {
-    results[endpoint.name] = await callEndpoint(endpoint)
+    const res = await fetch(url, {
+      method: endpoint.method,
+      headers: {
+        'Content-Type': 'application/json',
+        ...(endpoint.name !== 'Auth/Login' ? { Authorization: `Bearer ${localStorage.getItem('token')}` } : {})
+      },
+      body: endpoint.body ? JSON.stringify(endpoint.body) : undefined
+    })
+    results[endpoint.name] = await res.text()
   } catch (err) {
     results[endpoint.name] = err instanceof Error ? err.message : String(err)
   }

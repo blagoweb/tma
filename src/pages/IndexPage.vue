@@ -1,17 +1,7 @@
-<script setup lang="ts">
-import { computed } from 'vue';
-import { routes } from '@/router';
-import AppPage from '@/components/AppPage.vue';
-import AppLink from '@/components/AppLink.vue';
-
-const nonIndexRoutes = computed(() => routes.filter((r) => !!r.meta?.title));
-</script>
-
 <template>
-  <AppPage title="Home Page" :back="false">
+  <AppPage title="Привет" :back="false">
     <p>
-      This page is a home page in this boilerplate. You can use the links below to visit other
-      pages with their own functionality.
+      Создай мини-лендинг для соцсетей с аналитикой, заявками и платежами в Telegram — быстро, удобно, без кода.
     </p>
     <ul class="index-page__links">
       <li v-for="route in nonIndexRoutes" :key="route.name" class="index-page__link-item">
@@ -25,6 +15,15 @@ const nonIndexRoutes = computed(() => routes.filter((r) => !!r.meta?.title));
     </ul>
   </AppPage>
 </template>
+
+<script setup lang="ts">
+import { computed } from 'vue';
+import { routes } from '@/router';
+import AppPage from '@/components/AppPage.vue';
+import AppLink from '@/components/AppLink.vue';
+
+const nonIndexRoutes = computed(() => routes.filter((r) => !!r.meta?.title));
+</script>
 
 <style scoped>
 .index-page__links {

@@ -53,14 +53,6 @@ export const routes = [
       icon: IconTonConnect,
       title: 'TON Connect',
     },
-  },
-  {
-    path: '/debug',
-    name: 'debug',
-    component: DebugPage,
-    meta: {
-      title: 'Debug',
-    },
   }
 ];
 

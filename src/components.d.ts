@@ -14,6 +14,5 @@ declare module 'vue' {
     IndexPage: typeof import('./pages/IndexPage.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    TonConnectButton: typeof import('./tonconnect/TonConnectButton.vue')['default']
   }
 }

@@ -94,7 +94,7 @@ const {
   clearError,
 } = useAuth()
 
-const hasInitData = computed(() => !!initData.value)
+const hasInitData = computed(() => !!initData.hash)
 
 const formatDate = (dateString: string) => {
   return new Date(dateString).toLocaleDateString('ru-RU', {
@@ -121,7 +121,7 @@ const testApiCall = async () => {
 const showUserData = () => {
   console.log('Данные пользователя:', user.value)
   console.log('Токен:', token.value)
-  console.log('Telegram Init Data:', initData.value)
+  console.log('Telegram Init Data:', initData)
   alert('Данные выведены в консоль!')
 }
 </script>

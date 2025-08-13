@@ -33,7 +33,7 @@
               >
                 Call
               </button>
-              <pre v-if="pre">{{pre}}</pre>
+              <pre v-if="pre">{{ JSON.stringify(pre, null, 2) }}</pre>
             </div>
             <div v-if="results[endpoint.name]" class="mt-2 bg-gray-100 p-2 rounded text-sm font-mono overflow-auto">
               <pre>{{ results[endpoint.name] }}</pre>
@@ -100,7 +100,7 @@ interface Endpoint {
 
 const results = reactive<Record<string, string>>({})
 
-const pre = ref(null)
+const pre = ref<any>(null)
 
 async function callEndpoint(endpoint: Endpoint) {
   results[endpoint.name] = 'Loading...'

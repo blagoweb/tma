@@ -11,5 +11,5 @@
 import { useAppStore } from '@/stores/app'
 const appStore = useAppStore()
 const { user, userName } = appStore
-const title = `Привет ${userName}`
+const title = `Привет, ${userName}`
 </script>

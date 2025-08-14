@@ -1,26 +1,26 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
+import {authTelegram} from "@/api/auth";
+import type {TelegramUser} from "@/types/user";
 
 export const useAppStore = defineStore('app', () => {
   // State
   const isLoading = ref(false)
-  const user = ref<{
-    id?: string
-    name?: string
-    wallet?: string
-  } | null>(null)
+  const user = ref<TelegramUser | null>(null)
 
   // Getters
   const isAuthenticated = computed(() => !!user.value?.id)
-  const userName = computed(() => user.value?.name || 'Guest')
+  const userName = computed(() => user.value?.username || 'Гость')
 
   // Actions
   const setLoading = (loading: boolean) => {
     isLoading.value = loading
   }
 
-  const setUser = (userData: typeof user.value) => {
-    user.value = userData
+  const setUser = async () => {
+    setLoading(true)
+    user.value = await authTelegram()
+    setLoading(false)
   }
 
   const clearUser = () => {
@@ -31,8 +31,7 @@ export const useAppStore = defineStore('app', () => {
     // State
     isLoading,
     user,
-    theme,
-    
+
     // Getters
     isAuthenticated,
     userName,

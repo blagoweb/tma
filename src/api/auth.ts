@@ -5,15 +5,17 @@ import type {TelegramUser} from "@/types/user";
 import {initData} from "@telegram-apps/sdk-vue";
 
 interface AuthResponse {
-    token: string
-    user: TelegramUser
+    data: {
+        token: string
+        user: TelegramUser
+    }
 }
 
 export const authTelegram = async () => {
     try {
         const res: AuthResponse = await api.post('/auth/telegram', { init_data: initData.raw() })
-        setAuthKey(res.token)
-        return res.user
+        setAuthKey(res.data.token)
+        return res.data.user
     } catch (e) {
         errorLog(e)
         return null

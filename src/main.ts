@@ -11,7 +11,7 @@ import { pinia } from './stores'
 init(retrieveLaunchParams().startParam === 'debug' || import.meta.env.DEV)
 
 const app = createApp(App)
-// app.config.errorHandler = errorHandler
+app.config.errorHandler = errorHandler
 app.use(router)
 app.use(pinia)
 app.mount('#app')

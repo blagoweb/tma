@@ -1,6 +1,6 @@
 import type { AppConfig } from "vue";
 
-export const errorHandler: AppConfig['errorHandler'] = (err) => {
+export const errorHandler: AppConfig['errorHandler'] = (err: unknown) => {
     const error = err instanceof Error
         ? err.message
         : typeof err === 'string'

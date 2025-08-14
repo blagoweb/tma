@@ -1,8 +1,8 @@
 import api from "@/api/index";
 import {setAuthKey} from "@/helperts/storage";
-import {errorLog} from "@/helperts/logger";
 import type {TelegramUser} from "@/types/user";
 import {initData} from "@telegram-apps/sdk-vue";
+import {errorHandler} from "@/errorHandler";
 
 interface AuthResponse {
     data: {
@@ -17,7 +17,7 @@ export const authTelegram = async () => {
         setAuthKey(res.data.token)
         return res.data.user
     } catch (e) {
-        errorLog(e)
+        errorHandler(e)
         return null
     }
 }

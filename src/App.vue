@@ -13,7 +13,7 @@ const { isLoading, setUser } = appStore
 
 useBackButton()
 
-onBeforeMount(() => {
-    setUser()
+onBeforeMount(async () => {
+    await setUser()
 })
 </script>

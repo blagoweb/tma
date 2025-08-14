@@ -10,6 +10,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     App: typeof import('./App.vue')['default']
     AppPage: typeof import('./components/AppPage.vue')['default']
+    AppPreloader: typeof import('./components/AppPreloader.vue')['default']
     IndexPage: typeof import('./pages/IndexPage.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

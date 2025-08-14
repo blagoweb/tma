@@ -25,7 +25,6 @@
 import {initData} from "@telegram-apps/sdk-vue";
 
 const endpoints = [
-  { name: 'Health Check', method: 'GET', path: '/health' },
   { name: 'Auth/Login', method: 'POST', path: '/api/v1/auth/telegram', body: { init_data: initData.raw() } },
   { name: 'Check JWT', method: 'GET', path: '/api/v1/items' },
 ]

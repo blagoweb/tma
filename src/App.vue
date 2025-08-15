@@ -4,7 +4,6 @@
 </template>
 
 <script setup lang="ts">
-import { onBeforeMount } from 'vue'
 import { useBackButton } from '@/composables/useBackButton'
 
 import { useAppStore } from '@/stores/app'
@@ -12,8 +11,10 @@ const appStore = useAppStore()
 const { isLoading, setUser } = appStore
 
 useBackButton()
+console.log('init')
 
-onBeforeMount(() => {
-    setUser()
+onMounted(() => {
+  console.log(0)
+  setUser()
 })
 </script>

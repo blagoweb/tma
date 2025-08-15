@@ -11,6 +11,6 @@
 <script setup lang="ts">
 import { useAppStore } from '@/stores/app'
 const appStore = useAppStore()
-const { user, userName } = appStore
-const title = `Привет ${userName}`
+const title = computed(() => `Привет ${appStore.userName}`)
+const user = ref('')
 </script>

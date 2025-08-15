@@ -10,7 +10,7 @@ export const useAppStore = defineStore('app', () => {
 
   // Getters
   const isAuthenticated = computed(() => !!user.value?.id)
-  const userName = computed(() => user.value?.username || 'Гость')
+  const userName = computed(() => `${user.value?.first_name || ''} ${user.value?.last_name || ''}` || 'Гость')
 
   // Actions
   const setLoading = (loading: boolean) => {

@@ -1,5 +1,5 @@
 <template>
-  <AppPreloader v-if="isLoading" />
+  <AppPreloader v-if="appStore.isLoading" />
   <RouterView v-else />
 </template>
 
@@ -9,11 +9,8 @@ useBackButton()
 
 import { useAppStore } from '@/stores/app'
 const appStore = useAppStore()
-const { isLoading, setUser } = appStore
 
 onBeforeMount(() => {
-  setTimeout(() => {
-    setUser()
-  }, 2000)
+  appStore.setUser()
 })
 </script>

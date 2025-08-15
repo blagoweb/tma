@@ -10,7 +10,9 @@ interface AuthResponse {
 
 export const authTelegram = async () => {
     try {
+        console.log(initData?.raw())
         const res: AuthResponse = await api.post('/auth/telegram', { init_data: initData?.raw() || '' })
+        console.log(res)
         setAuthKey(res.token)
         return res.user
     } catch (e) {

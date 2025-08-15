@@ -11,7 +11,7 @@ export default createRouter({
       component: IndexPage,
     },
     {
-      path: '/',
+      path: '/pages',
       name: 'pages',
       component: PagesPage,
     },

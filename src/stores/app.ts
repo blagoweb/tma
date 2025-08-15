@@ -18,8 +18,10 @@ export const useAppStore = defineStore('app', () => {
   }
 
   const setUser = async () => {
+    console.log(1)
     setLoading(true)
     user.value = await authTelegram()
+    console.log(user.value)
     setLoading(false)
   }
 

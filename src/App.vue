@@ -12,8 +12,6 @@ const appStore = useAppStore()
 const { isLoading, setUser } = appStore
 
 onBeforeMount(() => {
-  setTimeout(() => {
-    setUser()
-  }, 2000)
+  setUser()
 })
 </script>

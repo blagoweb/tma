@@ -18,11 +18,18 @@ export const useAppStore = defineStore('app', () => {
   }
 
   const setUser = async () => {
-    console.log(1)
+    console.log('store: setUser called')
     setLoading(true)
-    user.value = await authTelegram()
-    console.log(user.value)
-    setLoading(false)
+    try {
+      console.log('store: calling authTelegram...')
+      user.value = await authTelegram()
+      console.log('store: authTelegram result:', user.value)
+    } catch (error) {
+      console.error('store: authTelegram error:', error)
+      user.value = null
+    } finally {
+      setLoading(false)
+    }
   }
 
   const clearUser = () => {

@@ -12,6 +12,7 @@ declare module 'vue' {
     AppPage: typeof import('./components/AppPage.vue')['default']
     AppPreloader: typeof import('./components/AppPreloader.vue')['default']
     IndexPage: typeof import('./pages/IndexPage.vue')['default']
+    PagesPage: typeof import('./pages/PagesPage.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     TonConnectButton: typeof import('./tonconnect/TonConnectButton.vue')['default']

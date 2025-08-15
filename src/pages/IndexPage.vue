@@ -3,6 +3,7 @@
     <p>
       Создай мини-лендинг для соцсетей с аналитикой, заявками и платежами в Telegram — быстро, удобно, без кода.
     </p>
+    <button @click="router.push('/pages')">Начать</button>
   </AppPage>
 </template>
 
@@ -10,4 +11,6 @@
 import { useAppStore } from '@/stores/app'
 const appStore = useAppStore()
 const title = computed(() => `Привет, ${appStore.userName}`)
+
+const router = useRouter()
 </script>

@@ -18,6 +18,7 @@ export const authTelegram = async () => {
         const res: AuthResponse = await api.post('/auth/telegram', { init_data: initDataRaw })
         console.log('auth: API response:', res)
         setAuthKey(res.token)
+        console.log('auth: Token saved to storage')
         return res.user
     } catch (e) {
         console.error('auth: API error:', e)

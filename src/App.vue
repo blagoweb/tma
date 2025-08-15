@@ -11,9 +11,7 @@ import { useAppStore } from '@/stores/app'
 const appStore = useAppStore()
 const { isLoading, setUser } = appStore
 
-onMounted(() => {
-  setTimeout(() => {
-    setUser()
-  }, 2000)
+onBeforeMount(() => {
+  setUser()
 })
 </script>

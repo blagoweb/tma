@@ -1,22 +1,13 @@
-<script setup lang="ts">
-defineProps<{ title: string, disclaimer?: string }>()
-</script>
-
 <template>
-    <div class="page">
-        <h1>{{ title }}</h1>
-        <div v-if="disclaimer" class="page__disclaimer">{{ disclaimer }}</div>
+    <div class="rel mt-20 ms-4">
+        <h1 class="flex-sb-c pb-6">
+          {{ title }}
+          <slot name="action"/>
+        </h1>
         <slot />
     </div>
 </template>
 
-<style>
-.page {
-    padding: 80px 20px 20px;
-    box-sizing: border-box;
-}
-
-.page__disclaimer {
-    margin-bottom: 16px;
-}
-</style>
+<script setup lang="ts">
+defineProps<{ title: string }>()
+</script>

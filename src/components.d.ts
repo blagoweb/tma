@@ -12,6 +12,8 @@ declare module 'vue' {
     AppLink: typeof import('./components/AppLink.vue')['default']
     AppPage: typeof import('./components/AppPage.vue')['default']
     AppPreloader: typeof import('./components/AppPreloader.vue')['default']
+    IconEditPencil: typeof import('./components/icons/IconEditPencil.vue')['default']
+    IconPlusRound: typeof import('./components/icons/IconPlusRound.vue')['default']
     IndexPage: typeof import('./pages/IndexPage.vue')['default']
     PagesPage: typeof import('./pages/PagesPage.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

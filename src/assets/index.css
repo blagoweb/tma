@@ -9,3 +9,58 @@ body {
     background: white;
     color: black;
 }
+
+* {
+    box-sizing: border-box;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+}
+hr {
+    color: gray;
+    border-width: 0.5px;
+}
+svg {
+    cursor: pointer;
+}
+
+.pb-6 {
+    padding-bottom: 24px;
+}
+
+.mt-20 {
+    margin-top: 80px;
+}
+.ms-4 {
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+.flex {
+    display: flex;
+}
+.sb {
+    justify-content: space-between;
+}
+.aic {
+    align-items: center;
+}
+.flex-sb-c {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rel {
+    position: relative;
+}
+.abs {
+    position: absolute;
+}
+.t0 {
+    top: 0;
+}
+.r0 {
+    right: 0;
+}

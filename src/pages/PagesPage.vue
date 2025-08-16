@@ -1,15 +1,28 @@
 <template>
   <AppPage title="Ваши страницы" :back="false">
-    <button>Добавить новую</button>
-    <pre>{{pages}}</pre>
+    <template v-slot:action>
+      <IconPlusRound @click="addPage('Новый')"/>
+    </template>
+    <div v-for="page in pages" :key="page.id">
+      <div class="flex-sb-c">
+        <b>{{page.title}}</b>
+        <IconEditPencil/>
+      </div>
+      <hr>
+    </div>
   </AppPage>
 </template>
 
 <script setup lang="ts">
-import {getPages} from "@/api/pages";
+import {addPage, getPages} from "@/api/pages";
+import type {Page} from "@/types/pages";
 
-const pages = ref([])
+const pages = ref<Page[]>([])
 onBeforeMount(async () => {
   pages.value = await getPages()
+
+  if (pages.value.length === 0) {
+    await addPage('Основной')
+  }
 })
 </script>

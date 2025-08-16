@@ -3,6 +3,7 @@
     <p>
       Создай мини-лендинг для соцсетей с аналитикой, заявками и платежами в Telegram — быстро, удобно, без кода.
     </p>
+    <pre>{{appStore.user}}</pre>
     <AppLink to="/pages">Начать</AppLink>
   </AppPage>
 </template>

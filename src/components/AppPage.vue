@@ -1,5 +1,5 @@
 <template>
-    <div class="rel mt-20 ms-4">
+    <div class="rel mt-24 ms-4">
         <h1 class="flex-sb-c pb-6">
           {{ title }}
           <slot name="action"/>

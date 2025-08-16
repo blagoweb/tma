@@ -22,7 +22,11 @@ onBeforeMount(async () => {
   pages.value = await getPages()
 
   if (pages.value.length === 0) {
-    await addPage('Основной')
+    const page = await addPage('Основной')
+
+    if (page) {
+      pages.value.push(page)
+    }
   }
 })
 </script>

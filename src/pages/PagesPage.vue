@@ -1,7 +1,7 @@
 <template>
   <AppPage title="Ваши страницы" :back="false">
     <template v-slot:action>
-      <IconPlusRound @click="addPage('Новый')"/>
+      <IconPlusRound @click="add('Новый')"/>
     </template>
     <div v-for="page in pages" :key="page.id">
       <div class="flex-sb-c">
@@ -18,15 +18,18 @@ import {addPage, getPages} from "@/api/pages";
 import type {Page} from "@/types/pages";
 
 const pages = ref<Page[]>([])
+const add = async (title: string) => {
+  const page = await addPage(title)
+
+  if (page) {
+    pages.value.push(page)
+  }
+}
 onBeforeMount(async () => {
   pages.value = await getPages()
 
   if (pages.value.length === 0) {
-    const page = await addPage('Основной')
-
-    if (page) {
-      pages.value.push(page)
-    }
+    await add('Основной')
   }
 })
 </script>

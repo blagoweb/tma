@@ -1,5 +1,6 @@
 <template>
   <AppPage title="Ваши страницы" :back="false">
+    <button>Добавить новую</button>
     <pre>{{pages}}</pre>
   </AppPage>
 </template>
